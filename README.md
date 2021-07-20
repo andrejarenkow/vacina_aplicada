@@ -4,40 +4,51 @@ As vacinas contra a COVID19 tem sido a grande esperança contra a pandemia. Os e
 Mas você já parou para pensar quantas doses o seu município aplicou? De qual marca? Quantas primeiras doses? Quantas primeiras?
 
 O governo federal disponibiliza uma API onde é possível baixar uma planilha completa sobre estes dados, lá é possível encontar os seguintes dados:
-* "estabelecimento_razaoSocial" : "MINISTERIO DA SAUDE",
-* "vacina_dataAplicacao" : "2021-03-02T00:00:00.000Z",
-* "vacina_grupoAtendimento_codigo" : "000920",
-* "estabelecimento_valor" : "2269880",
-* "@timestamp" : "2021-07-09T18:39:00.920Z",
-* "sistema_origem" : "Novo PNI",
-* "vacina_lote" : "200280",
-* "id_sistema_origem" : "16341",
-* "estalecimento_noFantasia" : "MS HGB HOSPITAL GERAL DE BONSUCESSO",
-* "paciente_endereco_coIbgeMunicipio" : "230440",
-* "paciente_endereco_coPais" : "10",
-* "estabelecimento_uf" : "RJ",
-* "paciente_nacionalidade_enumNacionalidade" : "B",
-* "paciente_endereco_nmPais" : "BRASIL",
-* "paciente_idade" : 54,
-* "paciente_racaCor_codigo" : "01",
-* "vacina_codigo" : "86",
-* "paciente_endereco_nmMunicipio" : "FORTALEZA",
-* "estabelecimento_municipio_nome" : "RIO DE JANEIRO",
-* "vacina_fabricante_referencia" : "Organization/61189445000156",
-* "estabelecimento_municipio_codigo" : "330455",
-* "vacina_grupoAtendimento_nome" : "Recepcionista",
-* "document_id" : "4aa6ec29-3be5-46a1-8b0c-4fa109526629-i0b0",
-* "@version" : "1",
-* "data_importacao_rnds" : "2021-03-19T16:38:38.000Z",
-* "paciente_endereco_cep" : "60055",
-* "paciente_dataNascimento" : "1966-12-17",
-* "vacina_descricao_dose" : "2ª Dose",
-* "vacina_fabricante_nome" : "FUNDACAO BUTANTAN",
-*          "vacina_categoria_codigo" : "9",
-*          "paciente_endereco_uf" : "CE",
-*          "vacina_categoria_nome" : "Trabalhadores de Saúde",
-*          "redshift" : "v2",
-*          "vacina_nome" : "Covid-19-Coronavac-Sinovac/Butantan",
-*          "paciente_racaCor_valor" : "BRANCA",
-*          "paciente_id" : "3d62c8945b3587ec3091be8345a52b936967afdc338236396ebd85d5585080ee",
-*          "paciente_enumSexoBiologico" : "F"
+* "estabelecimento_razaoSocial"
+* "vacina_dataAplicacao"
+* "vacina_grupoAtendimento_codigo"
+* "estabelecimento_valor"
+* "@timestamp"
+* "sistema_origem"
+* "vacina_lote"
+* "id_sistema_origem"
+* "estalecimento_noFantasia"
+* "paciente_endereco_coIbgeMunicipio"
+* "paciente_endereco_coPais"
+* "estabelecimento_uf"
+* "paciente_nacionalidade_enumNacionalidade"
+* "paciente_endereco_nmPais"
+* "paciente_idade"
+* "paciente_racaCor_codigo"
+* "vacina_codigo"
+* "paciente_endereco_nmMunicipio"
+* "estabelecimento_municipio_nome"
+* "vacina_fabricante_referencia"
+* "estabelecimento_municipio_codigo"
+* "vacina_grupoAtendimento_nome"
+* "document_id"
+* "@version"
+* "data_importacao_rnds"
+* "paciente_endereco_cep"
+* "paciente_dataNascimento"
+* "vacina_descricao_dose"
+* "vacina_fabricante_nome"
+* "vacina_categoria_codigo"
+* "paciente_endereco_uf"
+* "vacina_categoria_nome"
+* "redshift"
+* "vacina_nome"
+* "paciente_racaCor_valor"
+* "paciente_id"
+* "paciente_enumSexoBiologico"
+
+## Coletando os dados com Python
+
+Para facilitar a vida de quem procura bancos de dados para analisar, eu criei um código no qual é possível extrair estes dados, informando o nome do município (sem acento) e a unidade federativa do mesmo.
+
+O site da API e sua documentação estão em https://opendatasus.saude.gov.br/dataset/covid-19-vacinacao e o dado é aberto a todos.
+
+Os dados estão hospedados na Elastic, e somente são possíveis de serem coletados em lotes de 10.000, ou seja, para um município muito grande, vai demorar.
+O código coleta todos os dados disponíveis no Elastic sobre o município solicitado, pois possui um argumento chamado **Scroll_id**, que aponta para a continuidade daquele lote que já está sendo baixado.
+
+Também inseri uma função de **print** no meio do loop, para saber se está funcionando ou não.
