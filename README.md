@@ -1,1 +1,43 @@
-# vacina_aplicada
+# Quantas vacinas contra COVID-19 meu município aplicou?
+
+As vacinas contra a COVID19 tem sido a grande esperança contra a pandemia. Os estados do país inteiro competem para ver quem aplica mais, uma corrida saudável, ao meu entender.
+Mas você já parou para pensar quantas doses o seu município aplicou? De qual marca? Quantas primeiras doses? Quantas primeiras?
+
+O governo federal disponibiliza uma API onde é possível baixar uma planilha completa sobre estes dados, lá é possível encontar os seguintes dados:
+* "estabelecimento_razaoSocial" : "MINISTERIO DA SAUDE",
+* "vacina_dataAplicacao" : "2021-03-02T00:00:00.000Z",
+* "vacina_grupoAtendimento_codigo" : "000920",
+* "estabelecimento_valor" : "2269880",
+* "@timestamp" : "2021-07-09T18:39:00.920Z",
+* "sistema_origem" : "Novo PNI",
+* "vacina_lote" : "200280",
+* "id_sistema_origem" : "16341",
+* "estalecimento_noFantasia" : "MS HGB HOSPITAL GERAL DE BONSUCESSO",
+* "paciente_endereco_coIbgeMunicipio" : "230440",
+* "paciente_endereco_coPais" : "10",
+* "estabelecimento_uf" : "RJ",
+* "paciente_nacionalidade_enumNacionalidade" : "B",
+* "paciente_endereco_nmPais" : "BRASIL",
+* "paciente_idade" : 54,
+* "paciente_racaCor_codigo" : "01",
+* "vacina_codigo" : "86",
+* "paciente_endereco_nmMunicipio" : "FORTALEZA",
+* "estabelecimento_municipio_nome" : "RIO DE JANEIRO",
+* "vacina_fabricante_referencia" : "Organization/61189445000156",
+* "estabelecimento_municipio_codigo" : "330455",
+* "vacina_grupoAtendimento_nome" : "Recepcionista",
+* "document_id" : "4aa6ec29-3be5-46a1-8b0c-4fa109526629-i0b0",
+* "@version" : "1",
+* "data_importacao_rnds" : "2021-03-19T16:38:38.000Z",
+* "paciente_endereco_cep" : "60055",
+* "paciente_dataNascimento" : "1966-12-17",
+* "vacina_descricao_dose" : "2ª Dose",
+* "vacina_fabricante_nome" : "FUNDACAO BUTANTAN",
+*          "vacina_categoria_codigo" : "9",
+*          "paciente_endereco_uf" : "CE",
+*          "vacina_categoria_nome" : "Trabalhadores de Saúde",
+*          "redshift" : "v2",
+*          "vacina_nome" : "Covid-19-Coronavac-Sinovac/Butantan",
+*          "paciente_racaCor_valor" : "BRANCA",
+*          "paciente_id" : "3d62c8945b3587ec3091be8345a52b936967afdc338236396ebd85d5585080ee",
+*          "paciente_enumSexoBiologico" : "F"
